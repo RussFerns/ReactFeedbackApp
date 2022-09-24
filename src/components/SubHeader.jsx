@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from "react";
+import PropTypes from 'prop-types'
 
 function SubHeader({ subTitle = "Feedback below" }) {
   const subHeaderStyles = {
@@ -17,5 +18,8 @@ function SubHeader({ subTitle = "Feedback below" }) {
   );
 }
 
+SubHeader.propTypes = {
+  subTitle: PropTypes.string.isRequired,
+};
 
 export default SubHeader;
