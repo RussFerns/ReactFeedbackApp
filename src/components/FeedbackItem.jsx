@@ -9,27 +9,27 @@ const FeedbackItem = ({ feedbackItem, handleDelete, setFeedback }) => {
   // console.log(feedbackItem)
   // const [rating, setRating] = useState(7);
   // const [text, setText] = useState('Example Feedback item');
-  const upRating = () => {
-    setFeedback([
-        {
-          id: feedbackItem.id,
-          rating: feedbackItem.rating +1,
-          text: feedbackItem.text,
-        }
-      ]
-    )
-  }
-  const downRating = () => {
-    setFeedback(
-      [
-        {
-          id: feedbackItem.id,
-          rating: feedbackItem.rating -1,
-          text: feedbackItem.text,
-        }
-      ]
-    )
-  }
+  // const upRating = () => {
+  //   setFeedback([
+  //       {
+  //         id: feedbackItem.id,
+  //         rating: feedbackItem.rating +1,
+  //         text: feedbackItem.text,
+  //       }
+  //     ]
+  //   )
+  // }
+  // const downRating = () => {
+  //   setFeedback(
+  //     [
+  //       {
+  //         id: feedbackItem.id,
+  //         rating: feedbackItem.rating -1,
+  //         text: feedbackItem.text,
+  //       }
+  //     ]
+  //   )
+  // }
 
   
   if (!feedbackItem || feedbackItem.length === 0) {
@@ -43,8 +43,8 @@ const FeedbackItem = ({ feedbackItem, handleDelete, setFeedback }) => {
           <FaTimes color="purple"/>
         </button>
         <div className="text-display">{feedbackItem.text}</div>
-        <button className="btn btn-primary " onClick={upRating}>UpRating</button>
-        <button className="btn btn-primary " onClick={downRating}>DownRating</button>
+        {/* <button className="btn btn-primary " onClick={upRating}>UpRating</button> */}
+        {/* <button className="btn btn-primary " onClick={downRating}>DownRating</button> */}
       </Card>
     );
   }
