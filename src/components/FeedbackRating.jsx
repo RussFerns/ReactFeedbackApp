@@ -1,8 +1,11 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 
 const FeedbackRating = ({ select, selected }) => {
   // const [ratingSelected, setRatingSelected] = useState(10);
+
+  const { feedbackEdit } = useContext(FeedbackContext) // using Context
 
   const handleRatingChange = (e) => {
     select(+e.currentTarget.value)

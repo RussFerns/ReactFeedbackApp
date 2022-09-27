@@ -1,15 +1,28 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Card from "./Card";
 import Button from "./Button";
 import FeedbackRating from "./FeedbackRating";
+import FeedbackContext from "../context/FeedbackContext";
 
 
-const FeedbackForm = ({ handleAdd }) => {
+// const FeedbackForm = ({ handleAdd }) => { // replaced with Context API
+const FeedbackForm = () => {
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackRating, setFeedbackRating] = useState(10);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState("");
+
+  const { handleAdd, feedbackEdit, handleUpdate } = useContext(FeedbackContext) // using Context
+
+  useEffect(() => {
+    console.log("Hello from useFfect")
+    if(feedbackEdit.edit === true) {
+      setButtonDisabled(false)
+      setFeedbackText(feedbackEdit.feedbackItem.text)
+      setFeedbackRating(feedbackEdit.feedbackItem.rating)
+    }
+  }, [feedbackEdit]);
 
   const handleFeedbackText = ({ target: {value} }) => {
     if (value === "") {
@@ -26,6 +39,7 @@ const FeedbackForm = ({ handleAdd }) => {
   };
 
 
+
   const handleFormSubmit = (e) => {
     e.preventDefault()
     if (feedbackText.trim().length > 10) {
@@ -34,7 +48,12 @@ const FeedbackForm = ({ handleAdd }) => {
         rating: feedbackRating,
       }
       console.log("Form", newFeedback)
-      handleAdd(newFeedback)
+
+      if(feedbackEdit.edit === true) {
+        handleUpdate(feedbackEdit.feedbackItem.id, newFeedback)
+      } else {
+        handleAdd(newFeedback)
+      }
 
       // if (feedbackEdit.edit === true) {
       //   updateFeedback(feedbackEdit.item.id, newFeedback)

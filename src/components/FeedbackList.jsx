@@ -1,15 +1,19 @@
 /* eslint-disable */
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+// import PropTypes from "prop-types";
 // import { motion, AnimatePresence } from "framer-motion";
 import FeedbackItem from "./FeedbackItem";
+import FeedbackContext from "../context/FeedbackContext";
 
 
-const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {
+// const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {  // before using Context API
+const FeedbackList = ({ setFeedback }) => {
+  const {feedback} = useContext(FeedbackContext)
+
   if (!feedback || feedback.length === 0) {
     return <p>No feedback received yet</p>;
   } else {
-    // With Animation
+    // With Animation // Not using it here...
     // return (
     //   <div className="feedback-list">
     //     <AnimatePresence>
@@ -34,7 +38,7 @@ const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {
           <FeedbackItem
             key={index}
             feedbackItem={feedbackItem}
-            handleDelete={handleDelete}
+            // handleDelete={handleDelete} // Replaced with Context API
             setFeedback={setFeedback}
           />
         ))}
@@ -44,9 +48,9 @@ const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {
 };
 
 
-FeedbackList.propTypes = {
-  feedback: PropTypes.array.isRequired,
-};
+// FeedbackList.propTypes = {
+//   feedback: PropTypes.array.isRequired,
+// };
 
 
 export default FeedbackList;
