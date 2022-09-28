@@ -16,7 +16,7 @@ const FeedbackForm = () => {
   const { handleAdd, feedbackEdit, handleUpdate } = useContext(FeedbackContext) // using Context
 
   useEffect(() => {
-    console.log("Hello from useFfect")
+    // console.log("Hello from useFfect")
     if(feedbackEdit.edit === true) {
       setButtonDisabled(false)
       setFeedbackText(feedbackEdit.feedbackItem.text)
@@ -47,7 +47,7 @@ const FeedbackForm = () => {
         text: feedbackText,
         rating: feedbackRating,
       }
-      console.log("Form", newFeedback)
+      // console.log("Form", newFeedback)
 
       if(feedbackEdit.edit === true) {
         handleUpdate(feedbackEdit.feedbackItem.id, newFeedback)

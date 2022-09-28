@@ -9,7 +9,7 @@ const FeedbackRating = ({ select, selected }) => {
 
   const handleRatingChange = (e) => {
     select(+e.currentTarget.value)
-    console.log('Rating:', +e.currentTarget.value)
+    // console.log('Rating:', +e.currentTarget.value)
   };
 
   return (

@@ -1,0 +1,64 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "Excellent! Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias best ever!"
+    },
+    {
+      "id": 2,
+      "rating": 9,
+      "text": "Very Good. Consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae."
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "Good. Ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum good"
+    },
+    {
+      "id": 4,
+      "rating": 6,
+      "text": "OK. Dolor sit amet consectetur adipisicing alias voluptatem est voluptatum ipsa quae. Works just OK."
+    },
+    {
+      "id": 5,
+      "rating": 7,
+      "text": "Good. Vel vitae commodi alias voluptatem est voluptatum good"
+    },
+    {
+      "id": 6,
+      "rating": 4,
+      "text": "Not good. Commodi alias voluptatem est voluptatum not working"
+    },
+    {
+      "id": 7,
+      "rating": 7,
+      "text": "Good. Vel vitae commodi alias voluptatem est voluptatum ipsa quae."
+    },
+    {
+      "rating": 9,
+      "text": "Very good actually",
+      "id": 8
+    },
+    {
+      "text": "A rating of Seven Plus",
+      "rating": 7,
+      "id": 9
+    },
+    {
+      "text": "A feedback of Three :(, OK OK Four",
+      "rating": 4,
+      "id": 10
+    },
+    {
+      "text": "Another solid Seven",
+      "rating": 7,
+      "id": 11
+    },
+    {
+      "text": "Just some junk - OK No",
+      "rating": 5,
+      "id": 12
+    }
+  ]
+}

@@ -4,15 +4,16 @@ import React, { useContext } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
 import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../context/FeedbackContext";
+import Spinner from "./Spinner";
 
 
 // const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {  // before using Context API
 const FeedbackList = ({ setFeedback }) => {
-  const {feedback} = useContext(FeedbackContext)
+  const {feedback, isLoading} = useContext(FeedbackContext)
 
-  if (!feedback || feedback.length === 0) {
-    return <p>No feedback received yet</p>;
-  } else {
+  if (!isLoading && (!feedback || feedback.length === 0)) { 
+    return <p>No feedback received yet</p>; 
+  } else { 
     // With Animation // Not using it here...
     // return (
     //   <div className="feedback-list">
@@ -32,18 +33,20 @@ const FeedbackList = ({ setFeedback }) => {
     //   );
     // Without Animation
     
-    return (
-      <div className="feedback-list">
-        {feedback.map((feedbackItem, index) => (
-          <FeedbackItem
-            key={index}
-            feedbackItem={feedbackItem}
-            // handleDelete={handleDelete} // Replaced with Context API
-            setFeedback={setFeedback}
-          />
-        ))}
-      </div>
-      );
+    return isLoading 
+      ? (<Spinner />) 
+      : (
+        <div className="feedback-list">
+          {feedback.map((feedbackItem, index) => (
+            <FeedbackItem
+              key={index}
+              feedbackItem={feedbackItem}
+              // handleDelete={handleDelete} // Replaced with Context API
+              setFeedback={setFeedback}
+            />
+          ))}
+        </div>
+        );
   }
 };
 
