@@ -69,7 +69,6 @@ const FeedbackForm = () => {
 
   return (
     <Card>
-      Feedback Form
       <form onSubmit={handleFormSubmit}>
         <h2>How would you rate your experience?</h2>
         <FeedbackRating select={setFeedbackRating} selected={feedbackRating} />

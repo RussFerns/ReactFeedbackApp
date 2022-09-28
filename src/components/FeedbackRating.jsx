@@ -14,7 +14,6 @@ const FeedbackRating = ({ select, selected }) => {
 
   return (
     <div>
-      Feedback Rating
       <ul className="rating">
         {/* Using an array expander 'Array.from' to generate  <li> items */}
         {Array.from({ length: 10 }, (_, i) => (
