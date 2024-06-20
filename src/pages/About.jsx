@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import SubHeader from "../components/SubHeader";
+import Navbar from "../components/Navbar";
+
 
 const About = () => {
   return (
@@ -18,10 +19,10 @@ const About = () => {
               neque sapiente recusandae incidunt tenetur aut, soluta vero
               laboriosam nisi libero?
             </p>
-            <p>Version 1.0.0</p>
-            <p>
-              <Link to="/">Home</Link>
-            </p>
+            <p>Version 1.1.0</p>
+
+            <Navbar />
+
           </div>
         </Card>
       </div>

@@ -17,6 +17,11 @@ ul {
   list-style: none;
 }
 
+.active-menuitem {
+  background: #ff6a95;
+  color: #fff;
+}
+
 .container {
   max-width: 768px;
   margin: auto;
@@ -24,12 +29,24 @@ ul {
 }
 
 header {
-  height: 70px;
+  height: 65px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+
+
+.leave-feedback {
+  background-color: #202142;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -103,8 +120,9 @@ header {
 .input-group {
   display: flex;
   flex-direction: row;
+  align-items: center;
   border: 1px solid #ccc;
-  padding: 8px 10px;
+  padding: 4px 10px;
   border-radius: 8px;
 }
 
@@ -190,6 +208,7 @@ input:focus {
  * document */
 .about-link {
   display: flex;
+  gap: 10px;
   justify-content: flex-end;
   margin: 30px 0px 30px 0px;
 }

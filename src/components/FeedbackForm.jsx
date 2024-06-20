@@ -6,7 +6,6 @@ import FeedbackRating from "./FeedbackRating";
 import FeedbackContext from "../context/FeedbackContext";
 
 
-// const FeedbackForm = ({ handleAdd }) => { // replaced with Context API
 const FeedbackForm = () => {
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackRating, setFeedbackRating] = useState(10);
@@ -16,13 +15,13 @@ const FeedbackForm = () => {
   const { handleAdd, feedbackEdit, handleUpdate } = useContext(FeedbackContext) // using Context
 
   useEffect(() => {
-    // console.log("Hello from useFfect")
     if(feedbackEdit.edit === true) {
       setButtonDisabled(false)
       setFeedbackText(feedbackEdit.feedbackItem.text)
       setFeedbackRating(feedbackEdit.feedbackItem.rating)
     }
   }, [feedbackEdit]);
+
 
   const handleFeedbackText = ({ target: {value} }) => {
     if (value === "") {
@@ -39,15 +38,14 @@ const FeedbackForm = () => {
   };
 
 
-
   const handleFormSubmit = (e) => {
     e.preventDefault()
     if (feedbackText.trim().length > 10) {
       const newFeedback = {
+        id: feedbackEdit.feedbackItem.id,
         text: feedbackText,
         rating: feedbackRating,
       }
-      // console.log("Form", newFeedback)
 
       if(feedbackEdit.edit === true) {
         handleUpdate(feedbackEdit.feedbackItem.id, newFeedback)
@@ -55,17 +53,12 @@ const FeedbackForm = () => {
         handleAdd(newFeedback)
       }
 
-      // if (feedbackEdit.edit === true) {
-      //   updateFeedback(feedbackEdit.item.id, newFeedback)
-      // } else {
-      //   addFeedback(newFeedback)
-      // }
-
       setFeedbackText('')
       setFeedbackRating(10) 
       setButtonDisabled(true) 
     }
   }
+
 
   return (
     <Card>

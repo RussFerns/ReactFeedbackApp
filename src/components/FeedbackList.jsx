@@ -1,59 +1,39 @@
 /* eslint-disable */
 import React, { useContext } from "react";
-// import PropTypes from "prop-types";
-// import { motion, AnimatePresence } from "framer-motion";
 import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../context/FeedbackContext";
+import { motion, AnimatePresence } from "framer-motion";
 import Spinner from "./Spinner";
 
 
-// const FeedbackList = ({ feedback, handleDelete, setFeedback }) => {  // before using Context API
-const FeedbackList = ({ setFeedback }) => {
+const FeedbackList = () => {
   const {feedback, isLoading} = useContext(FeedbackContext)
 
   if (!isLoading && (!feedback || feedback.length === 0)) { 
     return <p>No feedback received yet</p>; 
   } else { 
-    // With Animation // Not using it here...
-    // return (
-    //   <div className="feedback-list">
-    //     <AnimatePresence>
-    //     {feedback.map((feedbackItem, index) => (
-    //       <motion-div key={index} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
-    //       <FeedbackItem
-    //         key={index}
-    //         feedbackItem={feedbackItem}
-    //         handleDelete={handleDelete}
-    //         setFeedback={setFeedback}
-    //       />
-    //       </motion-div>
-    //     ))}
-    //     </AnimatePresence>
-    //   </div>
-    //   );
-    // Without Animation
-    
-    return isLoading 
-      ? (<Spinner />) 
+    return (
+    isLoading 
+      ? (
+          <Spinner />
+        ) 
       : (
         <div className="feedback-list">
-          {feedback.map((feedbackItem, index) => (
-            <FeedbackItem
-              key={index}
-              feedbackItem={feedbackItem}
-              // handleDelete={handleDelete} // Replaced with Context API
-              setFeedback={setFeedback}
-            />
-          ))}
+          <AnimatePresence>
+            {feedback.map((feedbackItem) => (
+              <motion.div key={feedbackItem.id} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
+                <FeedbackItem
+                  key={feedbackItem.id}
+                  feedbackItem={feedbackItem}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
-        );
+        )
+      )
   }
 };
-
-
-// FeedbackList.propTypes = {
-//   feedback: PropTypes.array.isRequired,
-// };
 
 
 export default FeedbackList;

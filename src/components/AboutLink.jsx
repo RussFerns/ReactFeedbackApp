@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaQuestion } from 'react-icons/fa'
+import { FaFilm, FaQuestion } from 'react-icons/fa'
+
 
 const AboutLink = () => {
   return (
@@ -18,8 +19,12 @@ const AboutLink = () => {
             <FaQuestion size={30} /> 
         </Link>
 
+        <Link to="/media"> <FaFilm size={30} /> </Link>
+
     </div>
   )
 }
 
 export default AboutLink
+
+

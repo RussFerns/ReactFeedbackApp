@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
-// import PropTypes from 'prop-types' // before using Context API
 import FeedbackContext from "../context/FeedbackContext";
 
 
-// const FeedbackStats = ({ feedback }) => { // before using Context API
 const FeedbackStats = () => {
   const {feedback} = useContext(FeedbackContext)
+
   let averageRating = feedback.reduce((accumulator, current) => {
-    return accumulator + current.rating / feedback.length;
-  }, 0);
+    return accumulator + current.rating;
+  }, 0) / feedback.length;
 
   return (
     <div className="feedback-stats">
@@ -17,11 +16,6 @@ const FeedbackStats = () => {
     </div>
   );
 };
-
-
-// FeedbackStats.propTypes = {
-//   feedback: PropTypes.array.isRequired,
-// };
 
 export default FeedbackStats;
 
